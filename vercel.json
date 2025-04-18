@@ -3,8 +3,7 @@
   "builds": [
     {
       "src": "dist/server.js",
-      "use": "@vercel/node",
-      "config": ["prisma/schema.prisma"]
+      "use": "@vercel/node"
     }
   ],
   "routes": [{ "src": "/(.*)", "dest": "dist/server.js" }]

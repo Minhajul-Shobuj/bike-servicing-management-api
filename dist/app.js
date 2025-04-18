@@ -19,10 +19,7 @@ app.use("/api/customers", customer_route_1.CustomerRoute);
 app.use("/api/bikes", bike_route_1.BikeRoute);
 app.use("/api/services", bikeService_route_1.BikeServicerRoute);
 app.get("/", (req, res) => {
-    res.send("hello from assignment 8");
-});
-app.get("/", (req, res) => {
-    res.send("Hello from PH_Healthcare server");
+    res.send("Bike Servicing Management System API 🚲");
 });
 app.use(globalErrorHandler_1.default);
 app.use(notFound_1.default);
