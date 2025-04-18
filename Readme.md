@@ -108,6 +108,34 @@ Follow the steps below to run the project locally:
 Clone the repository to your local machine:
 
 ```bash
-git clone https://github.com/your-username/bike-servicing-api.git
-cd bike-servicing-api
+git clone https://github.com/Minhajul-Shobuj/bike-servicing-management-api
 ```
+
+### 2. Install Dependencies
+
+```bash
+npm install
+```
+
+### 3. Setup Environment Variables
+
+```bash
+DATABASE_URL=postgresql://user:password@localhost:5432/bike_service_db
+```
+
+### 4. Initialize Prisma
+
+```bash
+npx prisma generate
+npx prisma migrate dev --name init
+```
+
+### 5. Start the Development Server
+
+```bash
+npm run dev
+```
+
+## 🧑‍💻 Author
+
+[Md Minhajul Islam](https://github.com/Minhajul-Shobuj)
