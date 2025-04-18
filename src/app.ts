@@ -18,11 +18,7 @@ app.use("/api/bikes", BikeRoute);
 app.use("/api/services", BikeServicerRoute);
 
 app.get("/", (req, res) => {
-  res.send("hello from assignment 8");
-});
-
-app.get("/", (req, res) => {
-  res.send("Hello from PH_Healthcare server");
+  res.send("Bike Servicing Management System API 🚲");
 });
 
 app.use(globalErrorHandler);

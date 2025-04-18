@@ -168,7 +168,7 @@ const config = {
     "isCustomOutput": true
   },
   "relativeEnvPaths": {
-    "rootEnvPath": "../../.env",
+    "rootEnvPath": null,
     "schemaEnvPath": "../../.env"
   },
   "relativePath": "../../prisma",
@@ -182,12 +182,12 @@ const config = {
     "db": {
       "url": {
         "fromEnvVar": "DATABASE_URL",
-        "value": "postgresql://postgres:123456@localhost:5432/mydb?schema=public"
+        "value": "postgresql://postgres.avslxyyfzczlsoayazkr:968EYyJivXZKTJZV@aws-0-ap-southeast-1.pooler.supabase.com:6543/postgres?pgbouncer=true"
       }
     }
   },
-  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider = \"postgresql\"\n  url      = env(\"DATABASE_URL\")\n}\n\nmodel Customer {\n  customerId String   @id @default(uuid())\n  name       String\n  email      String   @unique\n  phone      String   @unique\n  bikes      Bike[]\n  createdAt  DateTime @default(now())\n}\n\nmodel Bike {\n  bikeId     String    @id @default(uuid())\n  brand      String\n  model      String\n  year       Int\n  customerId String\n  customer   Customer  @relation(fields: [customerId], references: [customerId])\n  services   Service[]\n}\n\nmodel Service {\n  serviceId      String        @id @default(uuid())\n  bikeId         String\n  bike           Bike          @relation(fields: [bikeId], references: [bikeId])\n  serviceDate    DateTime\n  completionDate DateTime?\n  description    String\n  status         ServiceStatus @default(pending)\n}\n\nenum ServiceStatus {\n  pending\n  inProgress\n  done\n}\n",
-  "inlineSchemaHash": "d0e3cbabb5804ce25d2b977b6152dbae7365155b3008fc86fb7bb620e2b0c886",
+  "inlineSchema": "// This is your Prisma schema file,\n// learn more about it in the docs: https://pris.ly/d/prisma-schema\n\n// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?\n// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init\n\ngenerator client {\n  provider = \"prisma-client-js\"\n  output   = \"../generated/prisma\"\n}\n\ndatasource db {\n  provider  = \"postgresql\"\n  url       = env(\"DATABASE_URL\")\n  directUrl = env(\"DIRECT_URL\")\n}\n\nmodel Customer {\n  customerId String   @id @default(uuid())\n  name       String\n  email      String   @unique\n  phone      String   @unique\n  bikes      Bike[]\n  createdAt  DateTime @default(now())\n}\n\nmodel Bike {\n  bikeId     String    @id @default(uuid())\n  brand      String\n  model      String\n  year       Int\n  customerId String\n  customer   Customer  @relation(fields: [customerId], references: [customerId])\n  services   Service[]\n}\n\nmodel Service {\n  serviceId      String        @id @default(uuid())\n  bikeId         String\n  bike           Bike          @relation(fields: [bikeId], references: [bikeId])\n  serviceDate    DateTime\n  completionDate DateTime?\n  description    String\n  status         ServiceStatus @default(pending)\n}\n\nenum ServiceStatus {\n  pending\n  inProgress\n  done\n}\n",
+  "inlineSchemaHash": "9bd14ba32467e81a52abb0eb88b6c29ccafdc289e44400494eaf3a1a40b521a5",
   "copyEngine": true
 }
 config.dirname = '/'
